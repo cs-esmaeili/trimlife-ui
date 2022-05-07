@@ -1,0 +1,18 @@
+@import "colors.scss";
+@import "header.scss";
+@import "leftSideBar.scss";
+@import "signal.scss";
+
+body {
+    background-color: $bgcolor;
+}
+
+.siderBar {
+    background-color: $sideBarColor;
+}
+
+.centerParent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

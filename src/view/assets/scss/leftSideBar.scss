@@ -1,0 +1,51 @@
+.profile {
+    text-align: center;
+    background-color: $bgcolor;
+    color: white;
+
+    .image {
+        height: 90%;
+        width: 90%;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+}
+
+.connectionStatus-active {
+    background-color: $connectionStatusActive;
+}
+.connectionStatus {
+    padding: 10px;
+    text-align: center;
+    color: white;
+    padding: 25px;
+    border-radius: 50px 50px 0px 0px;
+    border-top: 1px solid white;
+
+    .buttons {
+        text-align: center;
+        border-radius: 15%;
+        border-color: lightgray;
+        background-color: $bgcolor;
+    }
+
+    .icons {
+        width: 25px;
+        height: 25px;
+    }
+
+}
+
+.profileIcons {
+    width: 25px;
+    height: 25px;
+    color: white;
+}
+
+.rightBorder {
+    border-right: 1px solid white;
+}
+
+.topBorder {
+    border-top: 1px solid white;
+}

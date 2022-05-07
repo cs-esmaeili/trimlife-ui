@@ -1,0 +1,24 @@
+.header {
+    font-size: large;
+
+    .icons {
+        color: white;
+        width: 30px;
+        height: 30px;
+    }
+
+    .tabTitels {
+        margin-left: 8px;
+        color: white;
+    }
+ 
+    .bottomBorder {
+        border-bottom: 1px solid white;
+    }
+    .rightBorder {
+        border-right: 1px solid white;
+    }
+    .tabActive {
+        background-color: $headerTabActiveBgColor;
+    }
+}
