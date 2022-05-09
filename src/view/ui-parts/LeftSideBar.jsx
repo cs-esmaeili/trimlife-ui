@@ -3,28 +3,55 @@ import { AiFillSetting } from "react-icons/ai";
 import { BsHeadset, BsFillMicFill, BsFillTelephoneXFill } from "react-icons/bs";
 import Test from "../assets/images/slide1.jpg";
 import ListLeftBar from '../components/ListLeftBar';
+import { FaServer } from 'react-icons/fa';
+import { IoMdPeople } from 'react-icons/io';
+
 
 const LeftSideBar = () => {
     return (
-        <Col xl={3} className="siderBar h-100 d-flex flex-column rightBorder">
+        <Col xl={2} className="siderBar h-100 d-flex flex-column rightBorder">
+            <Row className='header bottomBorder'>
+                <Col className='tabActive'>
+                    <div className='p-2'>
+                        <IoMdPeople className='icons' />
+                        <span className='tabTitels'>Feriends</span>
+                    </div>
+                </Col>
+                <Col >
+                    <div className='p-2'>
+                        <FaServer className='icons' />
+                        <span className='tabTitels'>Server</span>
+                    </div>
+                </Col>
+            </Row>
             <Row className='leftSiderBarList flex-grow-1'>
-                <ListLeftBar />
-                <ListLeftBar />
-                <ListLeftBar />
-                <ListLeftBar />
-                <ListLeftBar />
-                <ListLeftBar />
-                <ListLeftBar />
-                <ListLeftBar />
-                <ListLeftBar />
-                <ListLeftBar />
-                <ListLeftBar />
-                <ListLeftBar />
-                <ListLeftBar />
-                <ListLeftBar />
-                <ListLeftBar />
-
-
+                <Container fluid>
+                    <Row>
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                        <ListLeftBar />
+                    </Row>
+                </Container>
             </Row>
             <Row>
                 <Container fluid>
@@ -102,7 +129,7 @@ const LeftSideBar = () => {
                     </Row>
                 </Container>
             </Row>
-        </Col>
+        </Col >
     );
 }
 export default LeftSideBar; 

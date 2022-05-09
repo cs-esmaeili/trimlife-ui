@@ -4,6 +4,7 @@
 @import "signal.scss";
 @import "scroll.scss";
 @import "RightSidebar.scss";
+@import "channel.scss";
 
 body {
     background-color: $bgcolor;
@@ -11,8 +12,9 @@ body {
 
 .wrapper {
     overflow: auto;
-    
+
 }
+
 .siderBar {
     background-color: $sideBarColor;
 }
@@ -21,4 +23,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.zeroPM {
+    padding: 0;
+    margin: 0;
 }

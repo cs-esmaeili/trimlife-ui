@@ -5,12 +5,12 @@ const ListLeftBar = () => {
     return (
         <Container fluid>
             <Row className='ListLeftBar bottomBorder'>
-                <Col xs={8} className="ListLeftBarTexts">
+                <Col xs={8} className="texts">
                     <div className='text'>Javad Esmaeili</div>
                     <span className='text'>25 member</span>
                 </Col>
                 <Col xs={4}>
-                    <Image className='ListLeftBarImage' roundedCircle fluid src={Test} alt="..." />
+                    <Image className='image' roundedCircle fluid src={Test} alt="..." />
                 </Col>
             </Row>
         </Container>
