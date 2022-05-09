@@ -1,0 +1,5 @@
+{
+    "timeOut" : 999999999999,
+    "serverSocket": "http://localhost:3000/user",
+    "api_url" : "http://localhost:3000/users/"
+}

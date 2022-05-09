@@ -59,12 +59,12 @@ const LeftSideBar = () => {
                         <Container fluid className='connectionStatus connectionStatus-active'>
                             <Row className='mb-2'>
                                 <Col xs={2}>
-                                    <div class="signal-bars mt1 sizing-box good four-bars">
-                                        <div class="first-bar bar"></div>
-                                        <div class="second-bar bar"></div>
-                                        <div class="third-bar bar"></div>
-                                        <div class="fourth-bar bar"></div>
-                                        <div class="fifth-bar bar"></div>
+                                    <div className="signal-bars mt1 sizing-box good four-bars">
+                                        <div className="first-bar bar"></div>
+                                        <div className="second-bar bar"></div>
+                                        <div className="third-bar bar"></div>
+                                        <div className="fourth-bar bar"></div>
+                                        <div className="fifth-bar bar"></div>
                                     </div>
                                 </Col>
                                 <Col xs={8}>
@@ -73,26 +73,26 @@ const LeftSideBar = () => {
                                 <Col xs={2}>
                                     <BsFillTelephoneXFill className='icons' />
                                 </Col>
-                                {/* <div class="signal-bars mt1 sizing-box ok three-bars">
-                                    <div class="first-bar bar"></div>
-                                    <div class="second-bar bar"></div>
-                                    <div class="third-bar bar"></div>
-                                    <div class="fourth-bar bar"></div>
-                                    <div class="fifth-bar bar"></div>
+                                {/* <div className="signal-bars mt1 sizing-box ok three-bars">
+                                    <div className="first-bar bar"></div>
+                                    <div className="second-bar bar"></div>
+                                    <div className="third-bar bar"></div>
+                                    <div className="fourth-bar bar"></div>
+                                    <div className="fifth-bar bar"></div>
                                 </div>
-                                <div class="signal-bars mt1 sizing-box bad two-bars">
-                                    <div class="first-bar bar"></div>
-                                    <div class="second-bar bar"></div>
-                                    <div class="third-bar bar"></div>
-                                    <div class="fourth-bar bar"></div>
-                                    <div class="fifth-bar bar"></div>
+                                <div className="signal-bars mt1 sizing-box bad two-bars">
+                                    <div className="first-bar bar"></div>
+                                    <div className="second-bar bar"></div>
+                                    <div className="third-bar bar"></div>
+                                    <div className="fourth-bar bar"></div>
+                                    <div className="fifth-bar bar"></div>
                                 </div>
-                                <div class="signal-bars mt1 sizing-box bad one-bar">
-                                    <div class="first-bar bar"></div>
-                                    <div class="second-bar bar"></div>
-                                    <div class="third-bar bar"></div>
-                                    <div class="fourth-bar bar"></div>
-                                    <div class="fifth-bar bar"></div>
+                                <div className="signal-bars mt1 sizing-box bad one-bar">
+                                    <div className="first-bar bar"></div>
+                                    <div className="second-bar bar"></div>
+                                    <div className="third-bar bar"></div>
+                                    <div className="fourth-bar bar"></div>
+                                    <div className="fifth-bar bar"></div>
                                 </div> */}
                             </Row>
                             <Row>
