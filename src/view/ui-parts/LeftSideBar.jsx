@@ -2,11 +2,28 @@ import { Row, Col, Image, Container, Button } from 'react-bootstrap';
 import { AiFillSetting } from "react-icons/ai";
 import { BsHeadset, BsFillMicFill, BsFillTelephoneXFill } from "react-icons/bs";
 import Test from "../assets/images/slide1.jpg";
+import ListLeftBar from '../components/ListLeftBar';
 
 const LeftSideBar = () => {
     return (
-        <Col xl={2} className="siderBar h-100 d-flex flex-column rightBorder">
-            <Row className='flex-grow-1'>
+        <Col xl={3} className="siderBar h-100 d-flex flex-column rightBorder">
+            <Row className='leftSiderBarList flex-grow-1'>
+                <ListLeftBar />
+                <ListLeftBar />
+                <ListLeftBar />
+                <ListLeftBar />
+                <ListLeftBar />
+                <ListLeftBar />
+                <ListLeftBar />
+                <ListLeftBar />
+                <ListLeftBar />
+                <ListLeftBar />
+                <ListLeftBar />
+                <ListLeftBar />
+                <ListLeftBar />
+                <ListLeftBar />
+                <ListLeftBar />
+
 
             </Row>
             <Row>
@@ -27,7 +44,7 @@ const LeftSideBar = () => {
                                     <span>Voice Connected</span>
                                 </Col>
                                 <Col xs={2}>
-                                    <BsFillTelephoneXFill  className='icons'/>
+                                    <BsFillTelephoneXFill className='icons' />
                                 </Col>
                                 {/* <div class="signal-bars mt1 sizing-box ok three-bars">
                                     <div class="first-bar bar"></div>

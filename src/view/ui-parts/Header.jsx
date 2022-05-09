@@ -23,6 +23,7 @@ const Header = () => {
             </Col>
             <Col xl={10} className="bottomBorder">
                 salam
+
             </Col>
         </Row>
     );

@@ -1,9 +1,9 @@
 import { Row, Col } from 'react-bootstrap';
 
-const Content = () => {
+const  Channels = () => {
     return (
-        <Col xl={5}>
+        <Col xl={2}>
         </Col>
     );
 }
-export default Content;
+export default Channels;
