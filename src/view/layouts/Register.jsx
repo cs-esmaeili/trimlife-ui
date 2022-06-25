@@ -1,60 +1,77 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Image, Button, Spinner } from 'react-bootstrap';
 import { Formik, Form, Field } from 'formik';
-import { LogInSchema } from './../../global/validator_Schemas';
+import { RegisterSchema } from './../../global/validator_Schemas';
 import { setCookie } from './../../global/cookie';
 import Logo from "../assets/images/logo.png";
 import { Link, withRouter } from "react-router-dom";
 import config from "./../../config.json";
 import axios from "axios";
-import { _login } from './../../services/Authorization';
+import { _register } from './../../services/Authorization';
 
-const LogIn = ({ history, update }) => {
-    const [show, setShow] = useState(false);
+const Register = ({ history, update }) => {
+
+
+    const [show, setShow] = useState(null);
     const [req, setReq] = useState(false);
-    const handelSubmit = async ({ username, password }) => {
+
+
+    const handelSubmit = async ({ email, userName, password }) => {
         try {
             setReq(true);
-            const respons = await _login({
-                username,
+            console.log({
+                email,
+                userName,
                 password,
             });
-            if (respons.data.status === "ok") {
-                const token = respons.data.token;
-                await setCookie(config.timeOut, 'token', token);
-                axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-                history.replace(config.web_url);
-                update();
-            }
+            const respons = await _register({
+                email,
+                userName,
+                password,
+            });
+            const token = respons.data.token;
+            await setCookie(config.timeOut, 'token', token);
+            axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+            history.replace(config.web_url);
+            update();
             setReq(false);
         } catch (error) {
             setReq(false);
-            setShow(true);
+            setShow({ message: error.response.data.message });
             console.log(error);
         }
     };
+
     return (
         <Container fluid className='d-flex vh-100' style={{ justifyContent: "center", alignItems: "center" }}>
             <Row className='flex-grow-1' style={{ justifyContent: "center" }}>
                 <Col xs={3}>
                     <Formik
                         initialValues={{
-                            username: '',
+                            userName: '',
+                            email: '',
                             password: '',
                         }}
-                        validationSchema={LogInSchema}
+                        validationSchema={RegisterSchema}
                         onSubmit={values => {
                             handelSubmit(values);
                         }}
                     >
                         {({ errors, touched }) => (
-                            <Form onChange={() => { setShow(false) }} className="bottomBorder rightBorder topBorder leftBorder p-3 justify-content-center d-flex flex-column">
+                            <Form onChange={() => { setShow(null) }} className="bottomBorder rightBorder topBorder leftBorder p-3 justify-content-center d-flex flex-column">
                                 <Image className='image' roundedCircle fluid src={Logo} alt="..." />
                                 <div className="form-group mb-1">
-                                    <Field className="form-control form-control-user centerPlaceHolder" name="username" placeholder="نام کاربری"
+                                    <Field className="form-control form-control-user centerPlaceHolder" name="userName" placeholder="نام کاربری"
                                     />
-                                    {errors.username && touched.username ? (
-                                        <div style={{ textAlign: "center", color: "white" }}>{errors.username}</div>
+                                    {errors.userName && touched.userName ? (
+                                        <div style={{ textAlign: "center", color: "white" }}>{errors.userName}</div>
+                                    ) : null}
+                                </div>
+                                <div className="form-group mb-1">
+                                    <Field className="form-control form-control-user centerPlaceHolder" name="email" placeholder="ایمیل"
+                                    />
+                                    {errors.email && touched.email ? (
+                                        <div style={{ textAlign: "center", color: "white" }}>{errors.email}</div>
                                     ) : null}
                                 </div>
                                 <div className="form-group mb-1">
@@ -64,9 +81,9 @@ const LogIn = ({ history, update }) => {
                                         <div style={{ textAlign: "center", color: "white" }}>{errors.password}</div>
                                     ) : null}
                                 </div>
-                                {show &&
+                                {show != null &&
                                     <div className="alert alert-danger" role="alert" style={{ textAlign: "center" }}>
-                                        نام کاربری یا رمز عبور اشتباه است
+                                        {show.message}
                                     </div>
                                 }
                                 <Button variant="primary" disabled={(req) ? true : false} type="submit">
@@ -79,14 +96,14 @@ const LogIn = ({ history, update }) => {
                                             aria-hidden="true"
                                         />
                                         :
-                                        <span>ورود</span>
+                                        <span>ثبت نام</span>
                                     }
                                 </Button>
                                 <Link
                                     className="collapse-item"
-                                    to={config.web_url + "register"}
+                                    to={config.web_url + "login"}
                                 >
-                                    <div style={{ textAlign: "right", color: "white", cursor: "pointer" }} >ثبت نام</div>
+                                    <div style={{ textAlign: "right", color: "white", cursor: "pointer" }} >ورود</div>
                                 </Link>
                             </Form>
                         )}
@@ -95,5 +112,6 @@ const LogIn = ({ history, update }) => {
             </Row>
         </Container>
     );
+
 }
-export default withRouter(LogIn);
+export default withRouter(Register);

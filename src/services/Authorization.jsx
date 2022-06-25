@@ -11,3 +11,6 @@ export const LogOut = (data) => {
 export const _revokeToken = (data) => {
     return http.post(`${config.api_url}revokeToken`, JSON.stringify(data));
 };
+export const _register = (data) => {
+    return http.post(`${config.api_url}register`, JSON.stringify(data));
+};

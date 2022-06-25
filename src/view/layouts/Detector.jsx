@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Container, Row, Col, Spinner } from 'react-bootstrap';
+import { Container, Row, Spinner } from 'react-bootstrap';
 import { getCookie, setCookie } from '../../global/cookie';
 import { _revokeToken } from './../../services/Authorization';
+import { Switch, Route, Redirect } from "react-router-dom";
 import config from '../../config.json';
 import LogIn from './LogIn';
 import axios from "axios";
+import Register from './Register';
+import Main from './Main';
 
 const Detector = () => {
     const [check, setCheck] = useState("checking");
@@ -13,7 +16,6 @@ const Detector = () => {
     const revokeToken = async (token) => {
         try {
             const respons = await _revokeToken({ token });
-            console.log(respons);
             if (respons.data.status === "ok") {
                 await setCookie(config.timeOut, 'token', respons.data.token);
                 axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -37,24 +39,31 @@ const Detector = () => {
             }
             return false;
         }
-
         checkConditions().then((reuslt) => {
             setCheck(reuslt);
-        })
-
+        });
         return () => {
             setCheck('checking');
         };
 
     }, [update]);
 
-
     if (check === true) {
-        return (<div>haha</div>);
+        return (
+            <Main />
+        );
     }
     if (check === false) {
         return (
-            <LogIn update={() => setUpdate(!update)} />
+            <Switch>
+                <Route path={[config.web_url + "register"]}>
+                    <Register update={() => setUpdate(!update)} />
+                </Route>
+                <Route path={[config.web_url]}>
+                    <Redirect to={config.web_url + "login"} />
+                    <LogIn update={() => setUpdate(!update)} />
+                </Route>
+            </Switch>
         );
     }
     if (check === "checking") {
